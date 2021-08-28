@@ -1,4 +1,4 @@
-# JOOX Homepage Demo Practice
+# JOOX Homepage Demo Website
 
 To practice creating React App (Non-commercial use)
 

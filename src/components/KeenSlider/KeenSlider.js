@@ -282,4 +282,9 @@ const StyledKeenSliderLayout = styled.div`
     }
 `;
 
-export default KeenSlider;
+const MemoKeenSlider = React.memo(KeenSlider);
+
+export {
+    MemoKeenSlider as KeenSlider,
+    MemoKeenSlider as default,
+};

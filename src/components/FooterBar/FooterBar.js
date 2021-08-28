@@ -63,7 +63,7 @@ const FooterBar = () => {
                                     </div>
                                     <div className="option">
                                         <button className="optionBtn">
-                                            <RollbackOutlined  className="playerIcon" />
+                                            <RollbackOutlined className="playerIcon" />
                                         </button>
                                     </div>
                                 </div>
@@ -383,4 +383,9 @@ const StyledFooterLayout = styled(Footer)`
     }
 `;
 
-export default FooterBar;
+const MemoFooterBar = React.memo(FooterBar);
+
+export {
+    MemoFooterBar as FooterBar,
+    MemoFooterBar as default,
+};

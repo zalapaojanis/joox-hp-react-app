@@ -164,4 +164,10 @@ const StyledButton = styled.button`
     white-space: pre;
 `;
 
-export default HeaderBar;
+const MemoHeaderBar = React.memo(HeaderBar);
+
+export {
+    MemoHeaderBar as HeaderBar,
+    MemoHeaderBar as default,
+};
+

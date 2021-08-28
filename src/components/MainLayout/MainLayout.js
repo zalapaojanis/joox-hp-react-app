@@ -1,3 +1,4 @@
+import React from 'react';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 import HeaderBar from '../HeaderBar/HeaderBar';
@@ -33,4 +34,9 @@ const StyledContent = styled(Content)`
   overflow-y: auto;
 `;
 
-export default MainLayout;
+const MemoMainLayout = React.memo(MainLayout);
+
+export {
+  MemoMainLayout as MainLayout,
+  MemoMainLayout as default,
+};

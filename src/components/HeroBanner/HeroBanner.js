@@ -59,4 +59,9 @@ const StyledItem = styled.div.attrs(() => ({
     }
 `;
 
-export default HeroBanner;
+const MemoHeroBanner = React.memo(HeroBanner);
+
+export {
+    MemoHeroBanner as HeroBanner,
+    MemoHeroBanner as default,
+};

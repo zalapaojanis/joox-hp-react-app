@@ -303,5 +303,4 @@ const StyledButton = styled.button`
     white-space: pre;
 `;
 
-
 export default SideBar;

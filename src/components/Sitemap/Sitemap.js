@@ -9,7 +9,6 @@ import { v4 as uuidv4 } from 'uuid';
 const { Panel } = Collapse;
 
 const onCollapse = () => {
-    console.log(CTRL.state.showSitemap)
     CTRL.setState({
         showSitemap: !CTRL.state.showSitemap,
     });
@@ -40,12 +39,12 @@ const Sitemap = () => {
                     </StyledTopKeywords>
                     <StyledSongCategory>
                         {songCategory.map(item => (
-                            <div className="gridItem">
-                                <a className="title" href={item.link} key={uuidv4()}>{item.title}</a>
+                            <div className="gridItem" key={uuidv4()}>
+                                <a className="title" href={item.link}>{item.title}</a>
                                 <div>
-                                    {item?.songs?.length > 0 && item?.songs?.map((item, index) => (
-                                        <React.Fragment>
-                                            <a className="songName" href={item.link} key={uuidv4()}>{item.name}</a>
+                                    {item?.songs?.length > 0 && item?.songs?.map(item => (
+                                        <React.Fragment key={uuidv4()}>
+                                            <a className="songName" href={item.link}>{item.name}</a>
                                             <span>|</span>
                                         </React.Fragment>
                                     ))}

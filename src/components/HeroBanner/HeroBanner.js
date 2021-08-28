@@ -21,8 +21,8 @@ const HeroBanner = () => {
                 buttonBackground
             >
                 {heroBannerList?.length > 0 && heroBannerList?.map(item => (
-                    <StyledItem>
-                        <img key={uuidv4()} src={item.src} alt={item.name} />
+                    <StyledItem key={uuidv4()}>
+                        <img src={item.src} alt={item.name} />
                     </StyledItem>
                 ))}
             </StyledKeenSlider>

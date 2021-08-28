@@ -4,6 +4,7 @@ import {
     RightOutlined,
     EyeFilled,
     LikeFilled,
+    PlayCircleFilled,
 } from '@ant-design/icons';
 import KeenSlider from '../../components/KeenSlider/KeenSlider';
 import {
@@ -16,6 +17,7 @@ import {
     songList
 } from '../../models/banners';
 import HeroBanner from '../../components/HeroBanner/HeroBanner';
+import AlbumImage from '../../components/AlbumImage/AlbumImage';
 import { v4 as uuidv4 } from 'uuid';
 
 const Home = () => {
@@ -41,27 +43,34 @@ const Home = () => {
                         right="-70px"
                     >
                         {hitChart?.length > 0 && hitChart?.map(item => (
-                            <StyledHitChart backgroundContent={item.backgroundContent}>
+                            <StyledHitChart backgroundContent={item.backgroundContent} key={uuidv4()}>
                                 <div className="gridGroup">
-                                    <StyledImage>
-                                        <img key={uuidv4()} src={item.imgSrc} alt={item.name} />
-                                    </StyledImage>
+                                    <AlbumImage imgSrc={item.imgSrc} name={item.name} showOnPlay />
                                     <div className="topGroup">
                                         <strong>{item.title}</strong>
                                         <ul>
                                             <li>
                                                 <a href="/">
-                                                    <strong>1</strong><span>{item.top1}</span>
+                                                    <div>
+                                                        <strong>1</strong><PlayCircleFilled />
+                                                    </div>
+                                                    <span>{item.top1}</span><span className="artistName">- {item.top1artist}</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="/">
-                                                    <strong>2</strong><span>{item.top2}</span>
+                                                    <div>
+                                                        <strong>2</strong><PlayCircleFilled />
+                                                    </div>
+                                                    <span>{item.top2}</span><span className="artistName">- {item.top2artist}</span>
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="/">
-                                                    <strong>3</strong><span>{item.top3}</span>
+                                                    <div>
+                                                        <strong>3</strong><PlayCircleFilled />
+                                                    </div>
+                                                    <span>{item.top3}</span><span className="artistName">- {item.top3artist}</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -87,10 +96,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {recommendPlaylist?.length > 0 && recommendPlaylist?.map(item => (
-                            <StyledHitAlbum>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledHitAlbum key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} showOnPlay />
                                 <div className="albumNameGroup">
                                     <span className="albumName">{item.name}</span>
                                     <span className="hitText">ฟังเพลงเพราะๆจากเพลย์ลิสต์ ฟังเพลินได้ตลอดทั้งวัน</span>
@@ -114,10 +121,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {recommendPlaylist?.length > 0 && recommendPlaylist?.map(item => (
-                            <StyledHitAlbum>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledHitAlbum key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} showOnPlay />
                                 <div className="albumNameGroup">
                                     <span className="albumName">{item.name}</span>
                                     <span className="hitText">ฟังเพลงเพราะๆจากเพลย์ลิสต์ ฟังเพลินได้ตลอดทั้งวัน</span>
@@ -141,10 +146,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {recommendPlaylist?.length > 0 && recommendPlaylist?.map(item => (
-                            <StyledHitAlbum>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledHitAlbum key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} showOnPlay />
                                 <div className="albumNameGroup">
                                     <span className="albumName">{item.name}</span>
                                     <span className="hitText">ฟังเพลงเพราะๆจากเพลย์ลิสต์ ฟังเพลินได้ตลอดทั้งวัน</span>
@@ -168,10 +171,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {recommendPlaylist?.length > 0 && recommendPlaylist?.map(item => (
-                            <StyledHitAlbum>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledHitAlbum key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} showOnPlay />
                                 <div className="albumNameGroup">
                                     <span className="albumName">{item.name}</span>
                                     <span className="hitText">ฟังเพลงเพราะๆจากเพลย์ลิสต์ ฟังเพลินได้ตลอดทั้งวัน</span>
@@ -195,10 +196,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {recommendPlaylist?.length > 0 && recommendPlaylist?.map(item => (
-                            <StyledHitAlbum>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledHitAlbum key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} showOnPlay />
                                 <div className="albumNameGroup">
                                     <span className="albumName">{item.name}</span>
                                     <span className="hitText">ฟังเพลงเพราะๆจากเพลย์ลิสต์ ฟังเพลินได้ตลอดทั้งวัน</span>
@@ -225,10 +224,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {vdo?.length > 0 && vdo?.map(item => (
-                            <StyledVdo>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledVdo key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} />
                                 <div className="vdoText">
                                     <span className="titleText">{item.title}</span>
                                     <span className="dateStr">{item.dateStr}</span>
@@ -255,10 +252,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {mv?.length > 0 && mv?.map(item => (
-                            <StyledVdo>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledVdo key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} />
                                 <div className="vdoText">
                                     <span className="titleText">{item.title}</span>
                                     <span className="dateStr">{item.dateStr}</span>
@@ -285,11 +280,9 @@ const Home = () => {
                         right="-70px"
                     >
                         {columnSong?.length > 0 && columnSong?.map(item => (
-                            <StyledColumnSong backgroundContent={item.backgroundContent}>
+                            <StyledColumnSong backgroundContent={item.backgroundContent} key={uuidv4()}>
                                 <div className="gridGroup">
-                                    <StyledImage>
-                                        <img key={uuidv4()} src={item.imgSrc} alt={item.name} />
-                                    </StyledImage>
+                                    <AlbumImage imgSrc={item.imgSrc} name={item.name} />
                                     <div className="contentGroup">
                                         <div className="titleGroup">
                                             <span><a href={item.link}>{item.title}</a></span>
@@ -322,11 +315,9 @@ const Home = () => {
                         right="-70px"
                     >
                         {songType?.length > 0 && songType?.map(item => (
-                            <StyledSongType>
+                            <StyledSongType key={uuidv4()}>
                                 <div className="relative">
-                                    <StyledImage>
-                                        <img key={uuidv4()} src={item.imgSrc} alt={item.name} />
-                                    </StyledImage>
+                                    <AlbumImage imgSrc={item.imgSrc} name={item.name} />
                                     <div className="songTypeName">
                                         <StyledTitle>
                                             <a href={item.link}>
@@ -360,10 +351,8 @@ const Home = () => {
                         right="-70px"
                     >
                         {songList?.length > 0 && songList?.map(item => (
-                            <StyledSongList>
-                                <StyledImage>
-                                    <img key={uuidv4()} src={item.imgSrc} alt={item.id} />
-                                </StyledImage>
+                            <StyledSongList key={uuidv4()}>
+                                <AlbumImage imgSrc={item.imgSrc} name={item.id} />
                                 <div className="listText">
                                     <span className="titleText">{item.name}</span>
                                 </div>
@@ -421,12 +410,6 @@ const StyledKeenSlider = styled(KeenSlider)`
     width: 100%;
 `;
 
-const StyledImage = styled.div`
-    img{
-        max-width: 100%;
-    }
-`;
-
 const StyledHitChart = styled.div.attrs(() => ({
     className: 'keen-slider__slide',
 }))`
@@ -447,9 +430,37 @@ const StyledHitChart = styled.div.attrs(() => ({
                 li{
                     a{
                         color: #fff;
-                        strong{
-                            font-size: 16px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        div{
                             margin-right: 10px;
+                            strong{
+                                font-size: 16px;
+                            }
+                            svg{
+                                display: none;
+                                font-size: 15px;
+                            }
+                        }
+                        span.artistName{
+                            margin-left: 5px;
+                            font-weight: 400;
+                            color: #ffffff99;
+                            :hover, :focus{
+                                color: #fff;
+                            }
+                        }
+                        :hover, :focus{
+                            div{
+                                margin-right: 4.4px;
+                                strong{
+                                    display: none;
+                                }
+                                svg{
+                                    display: inline-block;
+                                }
+                            }
                         }
                     }
                     
@@ -593,6 +604,7 @@ const StyledSongType = styled.div.attrs(() => ({
         display: flex;
         align-items: flex-end;
         justify-content: center;
+        cursor: pointer;
         div.songTypeName{
             position: absolute;
             z-index: 1;

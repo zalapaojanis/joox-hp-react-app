@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { menus, browse, login, about, policy } from '../../models/menus';
 import CTRL from 'react-nc';
+import { v4 as uuidv4 } from 'uuid';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -18,38 +19,38 @@ const SideBar = () => {
         <StyledWrapper>
             <StyledHeaderFixed>
                 <StyledSider className="sideBar" trigger={null} collapsible collapsed={CTRL.state.collapsed}>
-                    <Menu theme="dark" defaultSelectedKeys={['menu0']} mode="inline">
-                        <div className="mainMenuLayout box">
+                    <Menu theme="dark" mode="inline">
+                        <div className="mainMenuLayout box" eventKey='tmp_key-0'>
                             {menus.map((menu, index) => (
-                                <Menu.Item key={`menu${index}`} icon={menu.icon}>
+                                <Menu.Item key={uuidv4()} icon={menu.icon} className={index === 0 ? 'ant-menu-item-selected' : ''}>
                                     <a href={menu.link} target={menu.target} rel="noopener noreferrer">
                                         {menu.name}
                                     </a>
                                 </Menu.Item>
                             ))}
                         </div>
-                        <div className="downloadLayout">
+                        <div className="downloadLayout" eventKey='tmp_key-1'>
                             <img src="/images/joox-desktop02.png" alt="download" />
                             <StyledButton borderColor="#09de6e" backgroundColor="#09de6e" fontColor="#000">
                                 ดาวน์โหลดแอป JOOX
                             </StyledButton>
                         </div>
-                        <div className="browseLayout box">
+                        <div className="browseLayout box" eventKey='tmp_key-2'>
                             <strong className="browseTitle">Browse</strong>
-                            {browse.map((menu, index) => (
-                                <Menu.Item className="browseItem" key={`browse${index}`} icon={menu.icon}>
+                            {browse.map(menu => (
+                                <Menu.Item className="browseItem" key={uuidv4()} icon={menu.icon}>
                                     <a href={menu.link} target={menu.target} rel="noopener noreferrer">
                                         {menu.name}
                                     </a>
                                 </Menu.Item>
                             ))}
                         </div>
-                        <div className="loginLayout box">
+                        <div className="loginLayout box" eventKey='tmp_key-3'>
                             <strong className="loginTitle">สำหรับผู้ที่ลอคอิน</strong>
                             <ul className="dashed">
-                                {login.map((menu, index) => (
-                                    <li>
-                                        <a key={`login${index}`} href={menu.link} target={menu.target} rel="noopener noreferrer">
+                                {login.map(menu => (
+                                    <li key={uuidv4()}>
+                                        <a href={menu.link} target={menu.target} rel="noopener noreferrer">
                                             {menu.name}
                                         </a>
                                     </li>
@@ -59,13 +60,13 @@ const SideBar = () => {
                                 เข้าสู่ระบบ
                             </StyledButton>
                         </div>
-                        <div className="aboutLayout box">
-                            {about.map((menu, index) => (
-                                <React.Fragment>
+                        <div className="aboutLayout box" eventKey='tmp_key-4'>
+                            {about.map(menu => (
+                                <React.Fragment key={uuidv4()}>
                                     {menu?.subMenu?.length > 0 ? (
-                                        <SubMenu className="aboutItem" key={`about${index}`} title={menu.name}>
-                                            {menu?.subMenu?.map((menu, index) => (
-                                                <Menu.Item className="aboutItem" key={`submenu${index}`} icon={menu.icon}>
+                                        <SubMenu className="aboutItem" title={menu.name}>
+                                            {menu?.subMenu?.map(menu => (
+                                                <Menu.Item className="aboutItem" key={uuidv4()} icon={menu.icon}>
                                                     <a href={menu.link} target={menu.target} rel="noopener noreferrer">
                                                         {menu.name}
                                                     </a>
@@ -73,7 +74,7 @@ const SideBar = () => {
                                             ))}
                                         </SubMenu>
                                     ) : (
-                                        <Menu.Item className="aboutItem" key={`about${index}`} icon={menu.icon}>
+                                        <Menu.Item className="aboutItem" icon={menu.icon}>
                                             <a href={menu.link} target={menu.target} rel="noopener noreferrer">
                                                 {menu.name}
                                             </a>
@@ -88,11 +89,11 @@ const SideBar = () => {
                                 <YoutubeFilled />
                             </div>
                         </div>
-                        <div className="policyLayout box">
+                        <div className="policyLayout box" eventKey='tmp_key-5'>
                             <ul className="none">
-                                {policy.map((menu, index) => (
-                                    <li>
-                                        <a key={`login${index}`} href={menu.link} target={menu.target} rel="noopener noreferrer">
+                                {policy.map(menu => (
+                                    <li key={uuidv4()}>
+                                        <a href={menu.link} target={menu.target} rel="noopener noreferrer">
                                             {menu.name}
                                         </a>
                                     </li>
@@ -100,7 +101,7 @@ const SideBar = () => {
                             </ul>
                             <div className="right">
                                 © 2011 - 2021 Tencent. <br />
-                                All Rights Reserved
+                                All Rights Reserved (non-commercial use)
                             </div>
                         </div>
                     </Menu>
@@ -112,7 +113,7 @@ const SideBar = () => {
 
 const StyledWrapper = styled.div`
     position: relative;
-    z-index: 999;
+    z-index: 4;
 `;
 
 const StyledHeaderFixed = styled.div`
@@ -135,7 +136,10 @@ const StyledSider = styled(Sider)`
             background: #101010;
         }
         .ant-menu-item.ant-menu-item-selected{
-            color: #09de6e;
+            background: transparent;
+            a, .anticon{
+                color: #09de6e;
+            }
         }
         .anticon{
             font-size: 21px;

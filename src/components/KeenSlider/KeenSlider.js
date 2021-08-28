@@ -141,7 +141,6 @@ const KeenSlider = props => {
                             'controlsArrowDisabled': controlsStatus.right,
                         })}
                         onClick={() => {
-                            console.log('next', slider)
                             slider?.next()
                         }}
                     >

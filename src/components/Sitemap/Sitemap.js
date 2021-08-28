@@ -1,9 +1,10 @@
+import React from 'react';
 import { Collapse } from 'antd';
 import styled from 'styled-components';
 import { UpOutlined, DownOutlined } from '@ant-design/icons';
 import CTRL from 'react-nc';
 import { topKeywords, songCategory } from '../../models/sitemap';
-import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const { Panel } = Collapse;
 
@@ -31,7 +32,7 @@ const Sitemap = () => {
                         <p>Top keywords</p>
                         <div className="buttonGroup">
                             {topKeywords.map(item => (
-                                <StyledButton key={item.id}>
+                                <StyledButton key={uuidv4()}>
                                     {item.keyword}
                                 </StyledButton>
                             ))}
@@ -40,11 +41,11 @@ const Sitemap = () => {
                     <StyledSongCategory>
                         {songCategory.map(item => (
                             <div className="gridItem">
-                                <a className="title" href={item.link} key={item.id}>{item.title}</a>
+                                <a className="title" href={item.link} key={uuidv4()}>{item.title}</a>
                                 <div>
                                     {item?.songs?.length > 0 && item?.songs?.map((item, index) => (
                                         <React.Fragment>
-                                            <a className="songName" href={item.link} key={item.id}>{item.name}</a>
+                                            <a className="songName" href={item.link} key={uuidv4()}>{item.name}</a>
                                             <span>|</span>
                                         </React.Fragment>
                                     ))}

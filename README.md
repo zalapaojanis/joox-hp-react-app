@@ -1,6 +1,10 @@
 # JOOX Homepage Demo Website
 
-To practice creating React App (Non-commercial use)
+To practice creating React App UI (Non-commercial use)
+- antd
+- styled-components
+- react-nc
+- hook function
 
 ## Getting Started with Create React App
 

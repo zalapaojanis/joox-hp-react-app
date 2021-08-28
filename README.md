@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# JOOX Homepage Demo Website
+
+To practice creating React App (Non-commercial use)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
